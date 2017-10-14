@@ -16,7 +16,7 @@
           </tr>
           <tr>
             <td>メールアドレス</td>
-            <td><input type="text" name= email" size="30"></td>
+            <td><input type="text" name= "email" size="30"></td>
           </tr>
           <tr>
             <td>メッセージ</td>

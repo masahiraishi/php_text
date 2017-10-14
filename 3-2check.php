@@ -34,7 +34,7 @@ session_start();
 // 入力値の取得、加工
       $uname=htmlspecialchars($_POST["uname"],ENT_QUOTES,"UTF-8");
       $email=htmlspecialchars($_POST["email"],ENT_QUOTES,"UTF-8");
-      $message=htmlspecialchars($_POST["message"],ENT_QUOTES."UTF-8");
+      $message=htmlspecialchars($_POST["message"],ENT_QUOTES,"UTF-8");
 
       $_SESSION["uname"]=$uname;
       $_SESSION["email"]=$email;

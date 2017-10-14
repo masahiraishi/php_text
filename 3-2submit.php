@@ -19,12 +19,12 @@ session_start();
       // 入力値の取得、加工
       $uname=htmlspecialchars($_SESSION["uname"],ENT_QUOTES,"UTF-8");
       $email=htmlspecialchars($_SESSION["email"],ENT_QUOTES,"UTF-8");
-      $$message=htmlspecialchars($_SESSION["message"],ENT_QUOTES,"UTF-8");
+      $message=htmlspecialchars($_SESSION["message"],ENT_QUOTES,"UTF-8");
 
       // メール本文の組み立て
       $to="abiko.nishizawa@nifty.com";
       $title="[メールフォームより]";
-      $ext_header="From:{$meail}";
+      $ext_header="From:{$email}";
       $body=<<<EOM
 -------------------------------------------------------------------------------
       [webサイトからのメール]
