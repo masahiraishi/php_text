@@ -67,5 +67,24 @@
             <input type="checkbox" name="tec[]" value="Perl">Perl
           </td>
         </tr>
+        <tr>
+          <td>新刊情報のお知らせ</td>
+          <td>
+      <!-- ON/OFFのcheckbox -->
+            <input type="checkbox" name="dm" checked>送付を希望する
+          </td>
+        </tr>
+        <tr>
+          <td>書籍の感想</td>
+          <td>
+            <!-- メッセージ入力用のテキストエリア -->
+            <textarea rows="5" cols="40" name="message"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" value="確認する"  name="sub1">
+          </td>
+        </tr>
+      </table>
   </body>
 </html>
