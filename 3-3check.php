@@ -6,13 +6,13 @@ if (empty($_POST)){
 }
 
 // 評価用の数値と文字列の関連付け
-$ar_rate = array{
+$ar_rate = array(
   "1"=>"不満",
   "2"=>"やや不満",
   "3"=>"普通",
   "4"=>"やや満足",
   "5"=>"満足",
-};
+);
 ?>
 <html>
   <head>
@@ -42,18 +42,20 @@ if(empty($gender)){
   exit;
 }
 
-$job=htmlspecialchars($_POOST["job"],ENT_QUOTES,"UTF-8");
-if(empty($gender)){
-  echo "性別を選択してください";
+$job=htmlspecialchars($_POST["job"],ENT_QUOTES,"UTF-8");
+if(empty($job)){
+  echo "職業を選択してください";
   exit;
 }
-$rate1=htlspecialchars($_POST["rate1"],ENT_QUOTES,"UTF-8");
+
+$rate1=htmlspecialchars($_POST["rate1"],ENT_QUOTES,"UTF-8");
 if(empty($rate1)){
-  echo "書籍の満足度を選択してください";
+  echo "書籍のボリュームを評価してください";
   exit;
 }
+
 $rate2=htmlspecialchars($_POST["rate2"],ENT_QUOTES,"UTF-8");
-if(empty($_POST["rate2"])){
+if(empty($rate2)){
   echo "書籍のボリュームを評価してください";
   exit;
 }
@@ -64,22 +66,14 @@ if(empty($_POST["tec"])){
   $tec=implode("",$_POST["tec"]);
 }
 
-$tec=htmlspecialcahrs($tec,ENT_QUOTES,"UTF-8");
-
+$tec=htmlspecialchars($tec,ENT_QUOTES,"UTF-8");
 if($_POST["dm"]=="on"){
   $dm = "送付希望";
 }else{
   $dm="不要";
 }
 
-$message=htmlspecialchars($_POST[$message],ENT_QUOTES,"UTF-8");
-if(empty($message)){
-  $dm="送付希望";
-}else{
-  $dm="不要";
-}
-
-$message=htmlspecialchars($_POST["message",ENT_QUOTES,"UTF-8"]);
+$message=htmlspecialchars($_POST["message"],ENT_QUOTES,"UTF-8");
 if(empty($message)){
   echo "書籍の感想を入力して下さい";
   exit;
@@ -91,50 +85,50 @@ if(empty($message)){
     <table border="1">
       <tr>
         <td>お名前</td>
-        <td><?php echo $uname ?></td>
+        <td><?php echo $uname; ?></td>
       </tr>
       <tr>
         <td>メールアドレス</td>
-        <td><?php echo $email ?></td>
+        <td><?php echo $email; ?></td>
       </tr>
       <tr>
         <td>性別</td>
-        <td><?php echo $gender ?></td>
+        <td><?php echo $gender; ?></td>
       </tr>
       <tr>
         <td>職業</td>
-        <td><?php echo $job?></td>
+        <td><?php echo $job;?></td>
       </tr>
       <tr>
         <td>書籍の満足度</td>
-        <td><?php echo $ar_rate[$rate1] ?></td>
+        <td><?php echo $ar_rate[$rate1]; ?></td>
       </tr>
       <tr>
         <td>書籍のボリューム</td>
-        <td><?php echo $ar_rate[$rate2] ?></td>
+        <td><?php echo $ar_rate[$rate2]; ?></td>
       </tr>
       <tr>
         <td>普段使っている技術(複数回答可)</td>
-        <td><?php echo $tec ?></td>
+        <td><?php echo $tec; ?></td>
       </tr>
       <tr>
         <td>新刊情報のお知らせ</td>
-        <td><?php echo $dm ?></td>
+        <td><?php echo $dm; ?></td>
       </tr>
       <tr>
         <td>書籍の感想</td>
-        <td><?php echo nl2br($message)?></td>
+        <td><?php echo nl2br($message); ?></td>
       </tr>
       <tr>
         <td align="right" colsapn="2">
-          <input tyoe="submit" value="回答を送信する"name="sub1">
+          <input type="submit" value="回答を送信する" name="sub1">
         </td>
       </tr>
     </table>
     <!-- hiddenfield -->
-    <input type="hidden" name="qid" value="<?php echo $qid; ?>">
+   <!--  <input type="hidden" name="qid" value="<?php// echo $qid; ?>"> -->
     <input type="hidden" name="uname" value="<?php echo $uname;?>">
-    <input type="hidden" name="email" value="<?php echo $eammil;?>">
+    <input type="hidden" name="email" value="<?php echo $email;?>">
     <input type="hidden" name="gender" value="<?php echo $gender;?>">
     <input type="hidden" name="job" value="<?php echo $job; ?>">
     <input type="hidden" name="rate1" value="<?php echo $rate1; ?>">

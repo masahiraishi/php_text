@@ -1,6 +1,6 @@
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html";chareset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <title>アンケートフォーム</title>
   </head>
   <body>
@@ -14,7 +14,7 @@
         </tr>
         <tr>
           <td>メールアドレス</td>
-          <td><input type="text" nmae="email" size="50"></td>
+          <td><input type="text" name="email" size="50"></td>
         </tr>
         <tr>
           <td>性別</td>
@@ -50,7 +50,18 @@
               "1"=>"不満",
             );
 
-              foreach($ar_rate as $key=>value){
+              foreach($ar_rate as $key=>$value){
+                echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\">{$value}";
+              }
+              ?>
+            </td>
+          </tr>
+          <tr>
+            <td>書籍のボリュームは？</td>
+            <td>
+              <!-- rdioボタン -->
+            <?php
+              foreach($ar_rate as $key=>$value){
                 echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\">{$value}";
               }
             ?>
@@ -82,9 +93,11 @@
           </td>
         </tr>
         <tr>
-          <td align="right" value="確認する"  name="sub1">
+          <td align="right"  colspan="2">
+            <input type="submit" value="確認する"  name="sub1">
           </td>
         </tr>
       </table>
+    </form>
   </body>
 </html>

@@ -20,17 +20,17 @@ if(empty($_POST)){
       $job=htmlspecialchars($_POST["job"],ENT_QUOTES,"UTF-8");
       $rate1=htmlspecialchars($_POST["rate1"],ENT_QUOTES,"UTF-8");
       $rate2=htmlspecialchars($_POST["rate2"],ENT_QUOTES,"UTF-8");
-      $tec=htmlspecialchars($_POST["$tec"],ENT_QUOTES,"UTF-8");
-      $dm=htmlspecialchars($_POST["$dm"],ENT_QUOTES,"UTF-8");
-      $message=htmlspecialchars($_POST["$message"],ENT_QUOTES,"UF-8");
+      $tec=htmlspecialchars($_POST["tec"],ENT_QUOTES,"UTF-8");
+      $dm=htmlspecialchars($_POST["dm"],ENT_QUOTES,"UTF-8");
+      $message=htmlspecialchars($_POST["message"],ENT_QUOTES,"UTF-8");
 
 // 回答を書き込む準備
-      $line=array($uname,$email,$gender,$job,$rate1,$rate2,$tec,$dm,$messagge);
+      $line=array($uname,$email,$gender,$job,$rate1,$rate2,$tec,$dm,$message);
 // ファイルへの書き込み
       $file_name="answer.csv";
       $fp=fopen($file_name,"a");
       $return=fputcsv($fp,$line);
-      fclone($fp) ;
+      fclose($fp) ;
 
       if($return){
         $result_message="ご回答ありがとうございました";
