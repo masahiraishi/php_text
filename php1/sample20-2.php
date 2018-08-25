@@ -1,0 +1,1 @@
+<p style="color:#F30">トップページB</p>
